@@ -214,5 +214,10 @@ namespace Calculator
             }
             }
         }
+
+        private void buttonEqual_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
