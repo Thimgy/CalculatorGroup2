@@ -17,12 +17,7 @@ namespace Calculator
         {
             InitializeComponent();
             OperationIsPressed = false;
-            buttonPlus.Enabled = false;
-            buttonMinus.Enabled = false;
-            buttonDivision.Enabled = false;
-            buttonEqual.Enabled = false;
-            buttonDot.Enabled = false;
-            buttonMultiplication.Enabled = false;
+            DisableAllButtons();
             
         }
         private void EnableAllButtons()
@@ -33,7 +28,21 @@ namespace Calculator
             buttonEqual.Enabled = true;
             buttonDot.Enabled = true;
             buttonMultiplication.Enabled = true;
+            buttonDeleteOne.Enabled = true;
+            buttonDeleteAll.Enabled = true;
+        
 
+        }
+        private void DisableAllButtons()
+        {
+            buttonPlus.Enabled = false;
+            buttonMinus.Enabled = false;
+            buttonDivision.Enabled = false;
+            buttonEqual.Enabled = false;
+            buttonDot.Enabled = false;
+            buttonMultiplication.Enabled = false;
+            buttonDeleteOne.Enabled = false;
+            buttonDeleteAll.Enabled = false;
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
@@ -43,6 +52,7 @@ namespace Calculator
                 Screen.AppendText(" + ");
                 EnableAllButtons();
                 buttonPlus.Enabled = false;
+                buttonEqual.Enabled = false;
 
             }
                 
@@ -50,6 +60,7 @@ namespace Calculator
                 OperationIsPressed = true;
                 EnableAllButtons();
                 buttonPlus.Enabled = false;
+                buttonEqual.Enabled = false;
                 Screen.AppendText(" + ");
             }
         }
@@ -139,6 +150,7 @@ namespace Calculator
                 Screen.AppendText(" - ");
                 EnableAllButtons();
                 buttonMinus.Enabled = false;
+                buttonEqual.Enabled = false;
 
             }
 
@@ -146,6 +158,7 @@ namespace Calculator
                 OperationIsPressed = true;
                 EnableAllButtons();
                 buttonMinus.Enabled = false;
+                buttonEqual.Enabled = false;
                 Screen.AppendText(" - ");
             }
             
@@ -159,6 +172,7 @@ namespace Calculator
                 Screen.AppendText(" X ");
                 EnableAllButtons();
                 buttonMultiplication.Enabled = false;
+                buttonEqual.Enabled = false;
 
             }
 
@@ -167,6 +181,7 @@ namespace Calculator
                 OperationIsPressed = true;
                 EnableAllButtons();
                 buttonMultiplication.Enabled = false;
+                buttonEqual.Enabled = false;
                 Screen.AppendText(" X ");
             }
 
@@ -180,6 +195,7 @@ namespace Calculator
                 Screen.AppendText(" / ");
                 EnableAllButtons();
                 buttonDivision.Enabled = false;
+                buttonEqual.Enabled = false;
 
             }
 
@@ -188,6 +204,7 @@ namespace Calculator
                 OperationIsPressed = true;
                 EnableAllButtons();
                 buttonDivision.Enabled = false;
+                buttonEqual.Enabled = false;
                 Screen.AppendText(" / ");
             }
         }
@@ -195,24 +212,61 @@ namespace Calculator
         private void buttonDeleteAll_Click(object sender, EventArgs e)
         {
             Screen.Text = String.Empty;
-            EnableAllButtons();
+            DisableAllButtons();
+            
         }
 
         private void buttonDeleteOne_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(Screen.Text)) { 
-            if(OperationIsPressed==true)
+            char test = Screen.Text[Screen.Text.Length - 1];
+            if (test == ' ')
             {
-                Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 3);
-                OperationIsPressed = false;
-                EnableAllButtons();
+                OperationIsPressed = true;
             }
-            else
-            {
-                Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 1);
-                EnableAllButtons();
+
+
+            if (!String.IsNullOrEmpty(Screen.Text)) {
+                if (OperationIsPressed == true)
+                {
+                    Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 3);
+                    if (String.IsNullOrEmpty(Screen.Text))
+                    {
+                        DisableAllButtons();
+                    }
+                    else {
+                        OperationIsPressed = false;
+                        EnableAllButtons();
+                    }
+
+                }
+                else
+                {
+                     Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 1);
+
+                    if (String.IsNullOrEmpty(Screen.Text))
+                    {
+                        DisableAllButtons();
+                    }
+                    else
+                    {
+                        char last = Screen.Text[Screen.Text.Length - 1];
+                        if (last == ' ')
+                        {
+                            DisableAllButtons();
+                            buttonDeleteOne.Enabled = true;
+                            buttonDeleteAll.Enabled = true;
+
+
+                        }
+                        else
+                        {
+                            buttonEqual.Enabled = true;
+                        }
+                    }
+
+                }
             }
-            }
+            
         }
 
         private void buttonEqual_Click(object sender, EventArgs e)
@@ -221,6 +275,12 @@ namespace Calculator
             String[] text = Screen.Text.Split(' ');
             Screen.Text = String.Empty;
             Screen.Text = op.PerformOperation(text) + "";
+        }
+
+        private void buttonDot_Click(object sender, EventArgs e)
+        {
+            Screen.AppendText(".");
+
         }
     }
 }

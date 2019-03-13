@@ -8,16 +8,11 @@ public class OperationLogic
 {
 
 
-    String[] numbers;
     float no1;
     float no2;
     float result;
     String[] newArray;
-    private const int MAX_RECURSIVE_CALLS = 1000;
-    private const int COUNTER_MAX = 10000;
-    private const int OUTPUT_FREQUENCY = 1000;
 
-    int counter = 0;
     public OperationLogic()
     {
     }
@@ -29,7 +24,6 @@ public class OperationLogic
             result = float.Parse(array[0], CultureInfo.InvariantCulture.NumberFormat);
         }
        
-        counter++;
         int length = array.Length;
         for (int i = 1; i < array.Length; i += 2)
         {
