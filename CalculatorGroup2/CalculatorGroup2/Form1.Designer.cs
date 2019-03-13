@@ -51,6 +51,7 @@
             this.buttonSquare = new System.Windows.Forms.Button();
             this.buttonSquareRoot = new System.Windows.Forms.Button();
             this.buttonCloseBracket = new System.Windows.Forms.Button();
+            this.buttonMod = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -165,9 +166,9 @@
             // 
             // buttonDeleteAll
             // 
-            this.buttonDeleteAll.Location = new System.Drawing.Point(12, 215);
+            this.buttonDeleteAll.Location = new System.Drawing.Point(12, 258);
             this.buttonDeleteAll.Name = "buttonDeleteAll";
-            this.buttonDeleteAll.Size = new System.Drawing.Size(75, 80);
+            this.buttonDeleteAll.Size = new System.Drawing.Size(75, 37);
             this.buttonDeleteAll.TabIndex = 11;
             this.buttonDeleteAll.Text = "C";
             this.buttonDeleteAll.UseVisualStyleBackColor = true;
@@ -280,11 +281,22 @@
             this.buttonCloseBracket.Text = ")";
             this.buttonCloseBracket.UseVisualStyleBackColor = true;
             // 
+            // buttonMod
+            // 
+            this.buttonMod.Location = new System.Drawing.Point(13, 214);
+            this.buttonMod.Name = "buttonMod";
+            this.buttonMod.Size = new System.Drawing.Size(75, 38);
+            this.buttonMod.TabIndex = 26;
+            this.buttonMod.Text = "mod";
+            this.buttonMod.UseVisualStyleBackColor = true;
+            this.buttonMod.Click += new System.EventHandler(this.buttonMod_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 305);
+            this.Controls.Add(this.buttonMod);
             this.Controls.Add(this.buttonCloseBracket);
             this.Controls.Add(this.buttonSquareRoot);
             this.Controls.Add(this.buttonSquare);
@@ -339,6 +351,7 @@
         private System.Windows.Forms.Button buttonSquare;
         private System.Windows.Forms.Button buttonSquareRoot;
         private System.Windows.Forms.Button buttonCloseBracket;
+        private System.Windows.Forms.Button buttonMod;
     }
 }
 

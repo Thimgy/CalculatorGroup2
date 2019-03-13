@@ -5,14 +5,19 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Operation;
+using System.Globalization;
 
 namespace Calculator
 {
     public partial class Form1 : Form
     {
         protected Boolean OperationIsPressed;
+        protected Boolean isPressed;
+        // when an operation is completed and the user writes another number, the past result should be replaced with the new input
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +31,7 @@ namespace Calculator
             buttonMinus.Enabled = true;
             buttonDivision.Enabled = true;
             buttonEqual.Enabled = true;
+            buttonMod.Enabled = true;
             buttonMultiplication.Enabled = true;
             buttonDeleteOne.Enabled = true;
             buttonDeleteAll.Enabled = true;
@@ -39,6 +45,7 @@ namespace Calculator
             buttonMinus.Enabled = false;
             buttonDivision.Enabled = false;
             buttonEqual.Enabled = false;
+            buttonMod.Enabled = false;
             buttonMultiplication.Enabled = false;
             buttonDeleteOne.Enabled = false;
             buttonDeleteAll.Enabled = false;
@@ -223,7 +230,7 @@ namespace Calculator
             
         }
 
-        private void buttonDeleteOne_Click(object sender, EventArgs e)
+        private void buttonDeleteOne_Click(object sender, EventArgs e) 
         {
             char test = Screen.Text[Screen.Text.Length - 1];
             if (test == ' ')
@@ -284,6 +291,7 @@ namespace Calculator
             String[] text = Screen.Text.Split(' ');
             Screen.Text = String.Empty;
             Screen.Text = op.PerformOperation(text) + "";
+            isPressed = true;
         }
 
         private void buttonDot_Click(object sender, EventArgs e)
@@ -304,12 +312,69 @@ namespace Calculator
 
         private void buttonSquareRoot_Click(object sender, EventArgs e)
         {
+            if (Regex.IsMatch(Screen.Text, @"^\d+$"))
+            {
 
+                float result = OperationRoot.PerformationRoot(float.Parse(Screen.Text, CultureInfo.InvariantCulture.NumberFormat));
+                Screen.Text = String.Empty;
+                Screen.AppendText(result + "");
+
+            } 
+            
         }
 
         private void buttonSquare_Click(object sender, EventArgs e)
         {
 
+            /*if (isPressed == true) {
+                Screen.Text = String.Empty;
+                isPressed = false;
+            }*/
+
+            if (Regex.IsMatch(Screen.Text, @"^\d+$"))
+            {
+                float result = OperationSquare.PerformationSquare(float.Parse(Screen.Text, CultureInfo.InvariantCulture.NumberFormat));
+                Screen.Text = String.Empty;
+                Screen.AppendText(result + "");
+
+
+            } 
+        }
+
+        private void buttonMod_Click(object sender, EventArgs e) 
+        {
+            if (OperationIsPressed == true)
+            {
+                Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 3);
+                Screen.AppendText(" % ");
+                EnableAllButtons();
+                buttonMod.Enabled = false;
+                buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
+
+            }
+
+            else
+            {
+                OperationIsPressed = true;
+                EnableAllButtons();
+                buttonMod.Enabled = false;
+                buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
+                Screen.AppendText(" % ");
+            }
+
+
+            if (Regex.IsMatch(Screen.Text, @"^\d+$"))
+            {
+                float result = OperationMod.PerformationMod(float.Parse(Screen.Text, CultureInfo.InvariantCulture.NumberFormat), float.Parse(Screen.Text, CultureInfo.InvariantCulture.NumberFormat));
+                Screen.Text = String.Empty;
+                Screen.AppendText(result + "");
+
+
+
+            }
+            
         }
     }
 }
