@@ -19,6 +19,11 @@ public class OperationLogic
 
     public float PerformOperation(String[] array)
     {
+        if (array.Length == 1)
+        {
+            result = float.Parse(array[0], CultureInfo.InvariantCulture.NumberFormat);
+        }
+       
         int length = array.Length;
         for (int i = 1; i < array.Length; i += 2)
         {
@@ -39,7 +44,6 @@ public class OperationLogic
                 array[i + 1] = result.ToString().Replace(',', '.');
                 array[i - 1] = array[i] = "";
                 length = length - 2;
-
             }
         }
         newArray = new String[length];
