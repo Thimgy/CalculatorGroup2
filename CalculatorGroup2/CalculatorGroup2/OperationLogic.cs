@@ -22,6 +22,8 @@ public class OperationLogic
         int length = array.Length;
         for (int i = 1; i < array.Length; i += 2)
         {
+
+       
             if (array[i].Equals("X") || array[i].Equals("/"))
             {
                 no1 = float.Parse(array[i - 1], CultureInfo.InvariantCulture.NumberFormat);
@@ -34,7 +36,7 @@ public class OperationLogic
                 {
                     result = OperationDivision.PerformationDivision(no1, no2);
                 }
-                array[i + 1] = result.ToString();
+                array[i + 1] = result.ToString().Replace(',', '.');
                 array[i - 1] = array[i] = "";
                 length = length - 2;
 
@@ -46,7 +48,7 @@ public class OperationLogic
         {
             if (!array[i].Equals(""))
             {
-                newArray[k] = array[i];
+                newArray[k] = array[i].Replace(',', '.') ;
                 k++;
             }
         }
@@ -66,7 +68,7 @@ public class OperationLogic
                 {
                     result = OperationSubstraction.PerformSubstraction(no1, no2);
                 }
-                array[i + 1] = result.ToString();
+                array[i + 1] = result.ToString().Replace(',', '.') ;
                 array[i - 1] = array[i] = "";
                 length = length - 2;
 
@@ -78,7 +80,7 @@ public class OperationLogic
         {
             if (!array[i].Equals(""))
             {
-                newArray[k] = array[i];
+                newArray[k] = array[i].Replace(',', '.');
                 k++;
             }
         }
