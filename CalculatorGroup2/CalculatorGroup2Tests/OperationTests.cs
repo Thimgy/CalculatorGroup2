@@ -2,12 +2,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CalculatorGroup2;
 
-namespace CalculatorGroup2Tests
+namespace Operation.Tests
 {
-    [TestClass]
+    [TestClass()]
     public class OperationTests
     {
-        [TestMethod]
+        [TestMethod()]
         public void TestAddition()
         {
             float a = -10, b = 20;
