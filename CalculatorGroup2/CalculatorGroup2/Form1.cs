@@ -292,5 +292,24 @@ namespace Calculator
             buttonDot.Enabled = false;
 
         }
+
+        private void Screen_TextChanged(object sender, EventArgs e)
+        {
+            if(Screen.Text == "∞")
+            {
+                Screen.Text = string.Empty;
+
+            }
+        }
+
+        private void buttonSquareRoot_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSquare_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
