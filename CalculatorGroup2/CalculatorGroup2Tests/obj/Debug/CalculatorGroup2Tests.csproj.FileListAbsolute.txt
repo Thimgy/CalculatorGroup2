@@ -1,0 +1,17 @@
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\CalculatorGroup2Tests.dll
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\CalculatorGroup2Tests.pdb
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\CalculatorGroup2.exe
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\CalculatorGroup2.pdb
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\CalculatorGroup2.exe.config
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\obj\Debug\CalculatorGroup2Tests.csprojAssemblyReference.cache
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\obj\Debug\CalculatorGroup2Tests.csproj.CoreCompileInputs.cache
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\obj\Debug\CalculatorGroup2Tests.csproj.CopyComplete
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\obj\Debug\CalculatorGroup2Tests.dll
+C:\Users\mcn19001\Source\Repos\CalculatorGroup2\CalculatorGroup2\CalculatorGroup2Tests\obj\Debug\CalculatorGroup2Tests.pdb

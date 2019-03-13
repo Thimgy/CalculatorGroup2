@@ -10,13 +10,35 @@ namespace Operation.Tests
         [TestMethod()]
         public void TestAddition()
         {
-            // arrange
-            float a = 5, b = 2;
-            float expected = 7;
-            // act 
-            float actual = Operation.OperationAddition.PerformAddition(a, b);
-            // assert
-            Assert.AreEqual(expected, actual);
+            float a = -10, b = 20;
+            float result = Operation.OperationAddition.PerformAddition(a, b);
+
+            Assert.AreEqual(10, result);
+        }
+        [TestMethod]
+        public void TestSubstraction()
+        {
+            float a = 20, b = -10;
+            float result = Operation.OperationSubstraction.PerformSubstraction(a, b);
+
+            Assert.AreEqual(30, result);
+        }
+        [TestMethod]
+        public void TestMultiplication()
+        {
+            float a = -2, b = -3;
+            float result = Operation.OperationMultiplication.PerformationMultiplication(a, b);
+
+            Assert.AreEqual(6, result);
+        }
+
+        [TestMethod]
+        public void TestDivision()
+        {
+            float a = 10, b = 2;
+            float result = Operation.OperationDivision.PerformationDivision(a, b);
+     
+            Assert.AreEqual(5, result);
         }
     }
 }
