@@ -217,7 +217,10 @@ namespace Calculator
 
         private void buttonEqual_Click(object sender, EventArgs e)
         {
-
+            OperationLogic op = new OperationLogic();
+            String[] text = Screen.Text.Split(' ');
+            Screen.Text = String.Empty;
+            Screen.Text = op.PerformOperation(text) + "";
         }
     }
 }
