@@ -157,6 +157,7 @@
             this.buttonDot.TabIndex = 10;
             this.buttonDot.Text = ".";
             this.buttonDot.UseVisualStyleBackColor = true;
+            this.buttonDot.Click += new System.EventHandler(this.buttonDot_Click);
             // 
             // buttonDeleteAll
             // 
