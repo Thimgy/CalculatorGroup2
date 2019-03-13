@@ -115,9 +115,17 @@ namespace Calculator
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (isPressed == true) // do this for all numbers so after the result when we press a number the text gets overwritten
+            {
+                Screen.Text = String.Empty;
+                isPressed = false;
+            }
             Screen.AppendText("5");
             OperationIsPressed = false;
             EnableAllButtons();
+
+            
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -326,10 +334,7 @@ namespace Calculator
         private void buttonSquare_Click(object sender, EventArgs e)
         {
 
-            /*if (isPressed == true) {
-                Screen.Text = String.Empty;
-                isPressed = false;
-            }*/
+      
 
             if (Regex.IsMatch(Screen.Text, @"^\d+$"))
             {
@@ -338,7 +343,8 @@ namespace Calculator
                 Screen.AppendText(result + "");
 
 
-            } 
+            }
+            isPressed = true;
         }
 
         private void buttonMod_Click(object sender, EventArgs e) 
