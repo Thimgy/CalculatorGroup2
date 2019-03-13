@@ -26,10 +26,10 @@ namespace Calculator
             buttonMinus.Enabled = true;
             buttonDivision.Enabled = true;
             buttonEqual.Enabled = true;
-            buttonDot.Enabled = true;
             buttonMultiplication.Enabled = true;
             buttonDeleteOne.Enabled = true;
             buttonDeleteAll.Enabled = true;
+            
         
 
         }
@@ -39,7 +39,6 @@ namespace Calculator
             buttonMinus.Enabled = false;
             buttonDivision.Enabled = false;
             buttonEqual.Enabled = false;
-            buttonDot.Enabled = false;
             buttonMultiplication.Enabled = false;
             buttonDeleteOne.Enabled = false;
             buttonDeleteAll.Enabled = false;
@@ -53,6 +52,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonPlus.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
 
             }
                 
@@ -61,6 +61,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonPlus.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
                 Screen.AppendText(" + ");
             }
         }
@@ -151,6 +152,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonMinus.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
 
             }
 
@@ -159,6 +161,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonMinus.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
                 Screen.AppendText(" - ");
             }
             
@@ -173,6 +176,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonMultiplication.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
 
             }
 
@@ -182,6 +186,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonMultiplication.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = true;
                 Screen.AppendText(" X ");
             }
 
@@ -196,6 +201,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonDivision.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = false;
 
             }
 
@@ -205,6 +211,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonDivision.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonDot.Enabled = false;
                 Screen.AppendText(" / ");
             }
         }
@@ -255,6 +262,8 @@ namespace Calculator
                             DisableAllButtons();
                             buttonDeleteOne.Enabled = true;
                             buttonDeleteAll.Enabled = true;
+                            Screen.Focus();
+                            Screen.SelectionStart = Screen.Text.Length;
 
 
                         }
@@ -280,6 +289,7 @@ namespace Calculator
         private void buttonDot_Click(object sender, EventArgs e)
         {
             Screen.AppendText(".");
+            buttonDot.Enabled = false;
 
         }
     }
