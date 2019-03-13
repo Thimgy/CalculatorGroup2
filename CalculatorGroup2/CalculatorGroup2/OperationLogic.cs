@@ -43,7 +43,7 @@ public class OperationLogic
                 {
                     result = OperationDivision.PerformationDivision(no1, no2);
                 }
-                array[i + 1] = result + "";
+                array[i + 1] = result.ToString().Replace(',', '.');
                 array[i - 1] = array[i] = "";
                 length = length - 2;
 
@@ -75,7 +75,7 @@ public class OperationLogic
                 {
                     result = OperationSubstraction.PerformSubstraction(no1, no2);
                 }
-                array[i + 1] = result + "";
+                array[i + 1] = result.ToString().Replace(',', '.') ;
                 array[i - 1] = array[i] = "";
                 length = length - 2;
 
