@@ -2,18 +2,21 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CalculatorGroup2;
 
-namespace CalculatorGroup2Tests
+namespace Operation.Tests
 {
-    [TestClass]
+    [TestClass()]
     public class OperationTests
     {
-        [TestMethod]
+        [TestMethod()]
         public void TestAddition()
         {
+            // arrange
             float a = 5, b = 2;
-            float result = Operation.OperationAddition.PerformAddition(a, b);
-
-            Assert.AreEqual(7, result);
+            float expected = 7;
+            // act 
+            float actual = Operation.OperationAddition.PerformAddition(a, b);
+            // assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
