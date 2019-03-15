@@ -235,9 +235,10 @@ namespace Calculator
                 buttonDot.Enabled = true;
                 Screen.AppendText(" X ");
                 buttonChangeSign.Enabled = false;
+                isPressed = true;
 
             }
-            isPressed = true;
+            
         }
 
         private void buttonDivision_Click(object sender, EventArgs e)
@@ -372,16 +373,12 @@ namespace Calculator
 
         private void buttonSquare_Click(object sender, EventArgs e)
         {
-
-
-
-            if (Regex.IsMatch(Screen.Text, @"^\d+$") || Regex.IsMatch(Screen.Text, @"^\d*\.?\d*$")) 
+            if (Regex.IsMatch(Screen.Text, @"[-+]?(0?|[1-9][0-9]*)(\.[0-9]*[1-9])?([eE][-+]?(0|[1-9][0-9]*))?")) 
             {
                 float result = OperationSquare.PerformationSquare(float.Parse(Screen.Text, CultureInfo.InvariantCulture.NumberFormat));
                 Screen.Text = String.Empty;
                 Screen.AppendText(result + "");
                 buttonDot.Enabled = true;
-
             }
             isPressed = true; // move this to all the operations 
         }
