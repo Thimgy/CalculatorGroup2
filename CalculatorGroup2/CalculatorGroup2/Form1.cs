@@ -35,6 +35,7 @@ namespace Calculator
             buttonMultiplication.Enabled = true;
             buttonDeleteOne.Enabled = true;
             buttonDeleteAll.Enabled = true;
+            buttonChangeSign.Enabled = true;
             
         
 
@@ -49,6 +50,7 @@ namespace Calculator
             buttonMultiplication.Enabled = false;
             buttonDeleteOne.Enabled = false;
             buttonDeleteAll.Enabled = false;
+            buttonChangeSign.Enabled = false;
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace Calculator
                 buttonPlus.Enabled = false;
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
+                buttonChangeSign.Enabled = false;
 
             }
                 
@@ -68,6 +71,7 @@ namespace Calculator
                 EnableAllButtons();
                 buttonPlus.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonChangeSign.Enabled = false;
                 buttonDot.Enabled = true;
                 Screen.AppendText(" + ");
             }
@@ -79,6 +83,7 @@ namespace Calculator
             Screen.AppendText("0");
             OperationIsPressed = false;
             EnableAllButtons();
+           
 
         }
 
@@ -168,6 +173,9 @@ namespace Calculator
                 buttonMinus.Enabled = false;
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
+                buttonChangeSign.Enabled = false;
+
+
 
             }
 
@@ -178,8 +186,10 @@ namespace Calculator
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
                 Screen.AppendText(" - ");
+                buttonChangeSign.Enabled = false;
+
             }
-            
+
         }
 
         private void buttonMultiplication_Click(object sender, EventArgs e)
@@ -192,6 +202,8 @@ namespace Calculator
                 buttonMultiplication.Enabled = false;
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
+                buttonChangeSign.Enabled = false;
+
 
             }
 
@@ -203,6 +215,8 @@ namespace Calculator
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
                 Screen.AppendText(" X ");
+                buttonChangeSign.Enabled = false;
+
             }
 
         }
@@ -217,6 +231,7 @@ namespace Calculator
                 buttonDivision.Enabled = false;
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = false;
+                buttonChangeSign.Enabled = false;
 
             }
 
@@ -228,6 +243,8 @@ namespace Calculator
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = false;
                 Screen.AppendText(" / ");
+                buttonChangeSign.Enabled = false;
+
             }
         }
 
@@ -382,5 +399,42 @@ namespace Calculator
             }
             
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            
+            string equation = Screen.Text;
+            string last = Screen.Text.Split(' ')[Screen.Text.Split(' ').Length - 1];
+
+            if (Regex.IsMatch(last, @"^\d+$")) {
+                if (Screen.Text.Contains(' '))
+                {
+                    equation = Screen.Text.Substring(0, Screen.Text.LastIndexOf(' ')) + " (-" + last + ")";
+                }
+                else {
+                    equation = "(-" + last + ")";
+                }
+
+
+            }
+            if (last[0].Equals('(') && last[last.Length - 1].Equals(')')) {
+                if (last.Substring(1,1).Equals("-") && Regex.IsMatch(last.Substring(2, last.Length - 3), @"^\d+$")){
+                    if (last.Substring(1, 1).Equals("-")) {
+                        last = last.Substring(2, last.Length - 3);
+
+                        if (Screen.Text.Contains(' '))
+                        {
+                            equation = Screen.Text.Substring(0, Screen.Text.LastIndexOf(' ')) + " " + last ;
+                        }
+                        else
+                        {
+                            equation =  last ;
+                        }
+                    }
+                }
+            }
+            Screen.Text = equation;
+        }
+
     }
 }
