@@ -47,10 +47,8 @@
             this.buttonPlus = new System.Windows.Forms.Button();
             this.buttonEqual = new System.Windows.Forms.Button();
             this.Screen = new System.Windows.Forms.RichTextBox();
-            this.buttonOpenBracket = new System.Windows.Forms.Button();
             this.buttonSquare = new System.Windows.Forms.Button();
             this.buttonSquareRoot = new System.Windows.Forms.Button();
-            this.buttonCloseBracket = new System.Windows.Forms.Button();
             this.buttonMod = new System.Windows.Forms.Button();
             this.buttonChangeSign = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -244,16 +242,6 @@
             this.Screen.Text = "";
             this.Screen.TextChanged += new System.EventHandler(this.Screen_TextChanged);
             // 
-            // buttonOpenBracket
-            // 
-            this.buttonOpenBracket.Location = new System.Drawing.Point(13, 83);
-            this.buttonOpenBracket.Name = "buttonOpenBracket";
-            this.buttonOpenBracket.Size = new System.Drawing.Size(75, 39);
-            this.buttonOpenBracket.TabIndex = 21;
-            this.buttonOpenBracket.Text = "(";
-            this.buttonOpenBracket.UseVisualStyleBackColor = true;
-            this.buttonOpenBracket.Click += new System.EventHandler(this.buttonOpenBracket_Click);
-            // 
             // buttonSquare
             // 
             this.buttonSquare.Location = new System.Drawing.Point(13, 128);
@@ -273,16 +261,6 @@
             this.buttonSquareRoot.Text = "√";
             this.buttonSquareRoot.UseVisualStyleBackColor = true;
             this.buttonSquareRoot.Click += new System.EventHandler(this.buttonSquareRoot_Click);
-            // 
-            // buttonCloseBracket
-            // 
-            this.buttonCloseBracket.Location = new System.Drawing.Point(94, 83);
-            this.buttonCloseBracket.Name = "buttonCloseBracket";
-            this.buttonCloseBracket.Size = new System.Drawing.Size(75, 39);
-            this.buttonCloseBracket.TabIndex = 25;
-            this.buttonCloseBracket.Text = ")";
-            this.buttonCloseBracket.UseVisualStyleBackColor = true;
-            this.buttonCloseBracket.Click += new System.EventHandler(this.buttonCloseBracket_Click);
             // 
             // buttonMod
             // 
@@ -311,10 +289,8 @@
             this.ClientSize = new System.Drawing.Size(423, 308);
             this.Controls.Add(this.buttonChangeSign);
             this.Controls.Add(this.buttonMod);
-            this.Controls.Add(this.buttonCloseBracket);
             this.Controls.Add(this.buttonSquareRoot);
             this.Controls.Add(this.buttonSquare);
-            this.Controls.Add(this.buttonOpenBracket);
             this.Controls.Add(this.Screen);
             this.Controls.Add(this.buttonEqual);
             this.Controls.Add(this.buttonPlus);
@@ -361,10 +337,8 @@
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonEqual;
         private System.Windows.Forms.RichTextBox Screen;
-        private System.Windows.Forms.Button buttonOpenBracket;
         private System.Windows.Forms.Button buttonSquare;
         private System.Windows.Forms.Button buttonSquareRoot;
-        private System.Windows.Forms.Button buttonCloseBracket;
         private System.Windows.Forms.Button buttonMod;
         private System.Windows.Forms.Button buttonChangeSign;
     }

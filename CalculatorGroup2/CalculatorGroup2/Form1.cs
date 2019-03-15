@@ -344,8 +344,9 @@ namespace Calculator
         }
 
         private void buttonDeleteOne_Click(object sender, EventArgs e)
-        {
+        {                
             char test = Screen.Text[Screen.Text.Length - 1];
+
             if (test == ' ')
             {
                 OperationIsPressed = true;
