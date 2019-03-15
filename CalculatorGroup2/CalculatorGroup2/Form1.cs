@@ -17,12 +17,18 @@ namespace Calculator
     {
         protected Boolean OperationIsPressed;
         protected Boolean isPressed;
+        protected Boolean SquarePressed;
+        protected Boolean SquareRootPressed;
+        protected bool performedCalculation;
+
         // when an operation is completed and the user writes another number, the past result should be replaced with the new input
         public Form1()
         {
             InitializeComponent();
             OperationIsPressed = false;
             DisableAllButtons();
+            performedCalculation = false;
+            
 
         }
         private void EnableAllButtons()
@@ -40,7 +46,20 @@ namespace Calculator
         
 
         }
+        private void SquareOrRootPressed()
+        {
+           /* if (SquareRootPressed == true)
+            {
+                Screen.Text = String.Empty;
+                SquareRootPressed = false;
+            }*/
+            if (SquarePressed == true)
+            {
+                Screen.Text = String.Empty;
+                SquarePressed = false;
+            }
 
+        }
         private void ReplaceResults()
         {
 
@@ -69,55 +88,69 @@ namespace Calculator
 
         private void button0_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("0");
             OperationIsPressed = false;
             EnableAllButtons();
-           
+
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("1");
             OperationIsPressed = false;
             EnableAllButtons();
+            
+
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("2");
             OperationIsPressed = false;
             EnableAllButtons();
+            
+
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("3");
             OperationIsPressed = false;
             EnableAllButtons();
+            
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("4");
             OperationIsPressed = false;
             EnableAllButtons();
+            
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("5");
             OperationIsPressed = false;
             EnableAllButtons();
+            
 
 
 
@@ -125,36 +158,47 @@ namespace Calculator
 
         private void button6_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("6");
             OperationIsPressed = false;
             EnableAllButtons();
+            
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("7");
             OperationIsPressed = false;
             EnableAllButtons();
+            
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("8");
             OperationIsPressed = false;
             EnableAllButtons();
+            
+
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            SquareOrRootPressed();
             ReplaceResults();
             Screen.AppendText("9");
             OperationIsPressed = false;
             EnableAllButtons();
+            
+
         }
 
         private void buttonPlus_Click(object sender, EventArgs e)
@@ -167,6 +211,8 @@ namespace Calculator
                 buttonPlus.Enabled = false;
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
+                SquarePressed = false;
+                SquareRootPressed = false;
 
             }
 
@@ -178,6 +224,8 @@ namespace Calculator
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
                 Screen.AppendText(" + ");
+                SquarePressed = false;
+                SquareRootPressed = false;
             }
 
         }
@@ -193,6 +241,8 @@ namespace Calculator
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
                 buttonChangeSign.Enabled = false;
+                SquarePressed = false;
+                SquareRootPressed = false;
 
 
 
@@ -206,6 +256,8 @@ namespace Calculator
                 buttonDot.Enabled = true;
                 Screen.AppendText(" - ");
                 buttonChangeSign.Enabled = false;
+                SquarePressed = false;
+                SquareRootPressed = false;
 
             }
 
@@ -222,6 +274,8 @@ namespace Calculator
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
                 buttonChangeSign.Enabled = false;
+                SquarePressed = false;
+                SquareRootPressed = false;
 
 
             }
@@ -235,6 +289,8 @@ namespace Calculator
                 buttonDot.Enabled = true;
                 Screen.AppendText(" X ");
                 buttonChangeSign.Enabled = false;
+                SquarePressed = false;
+                SquareRootPressed = false;
 
             }
             //isPressed = true;
@@ -242,30 +298,36 @@ namespace Calculator
 
         private void buttonDivision_Click(object sender, EventArgs e)
         {
-            if (OperationIsPressed == true)
-            {
-                Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 3);
-                Screen.AppendText(" / ");
-                EnableAllButtons();
-                buttonDivision.Enabled = false;
-                buttonEqual.Enabled = false;
-                buttonDot.Enabled = false;
-                buttonChangeSign.Enabled = false;
+            
+                if (OperationIsPressed == true)
+                {
+                    Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 3);
+                    Screen.AppendText(" / ");
+                    EnableAllButtons();
+                    buttonDivision.Enabled = false;
+                    buttonEqual.Enabled = false;
+                    buttonDot.Enabled = false;
+                    buttonChangeSign.Enabled = false;
+                    SquarePressed = false;
+                    SquareRootPressed = false;
+
+                }
+
+                else
+                {
+                    OperationIsPressed = true;
+                    EnableAllButtons();
+                    buttonDivision.Enabled = false;
+                    buttonEqual.Enabled = false;
+                    buttonDot.Enabled = true;
+                    Screen.AppendText(" / ");
+                    buttonChangeSign.Enabled = false;
+                    SquarePressed = false;
+                    SquareRootPressed = false;
 
             }
-
-            else
-            {
-                OperationIsPressed = true;
-                EnableAllButtons();
-                buttonDivision.Enabled = false;
-                buttonEqual.Enabled = false;
-                buttonDot.Enabled = true;
-                Screen.AppendText(" / ");
-                buttonChangeSign.Enabled = false;
-
-            }
-            // isPressed = true;
+                // isPressed = true;
+            
         }
 
         private void buttonDeleteAll_Click(object sender, EventArgs e)
@@ -336,7 +398,7 @@ namespace Calculator
             String[] text = Screen.Text.Split(' ');
             Screen.Text = String.Empty;
             Screen.Text = op.PerformOperation(text) + "";
-            //isPressed = true;
+            isPressed = true;
             //buttonDot.Enabled = false;
         }
 
@@ -365,8 +427,11 @@ namespace Calculator
                 Screen.Text = String.Empty;
                 Screen.AppendText(result + "");
                 buttonDot.Enabled = true;
+                SquareRootPressed = true;
+                
+
             }
-            isPressed = true;
+            //isPressed = true;
 
         }
 
@@ -381,9 +446,11 @@ namespace Calculator
                 Screen.Text = String.Empty;
                 Screen.AppendText(result + "");
                 buttonDot.Enabled = true;
+                SquarePressed = true;
+
 
             }
-            isPressed = true; // move this to all the operations 
+            // isPressed = true; // move this to all the operations 
         }
 
         private void buttonMod_Click(object sender, EventArgs e) 
@@ -396,7 +463,8 @@ namespace Calculator
                 buttonMod.Enabled = false;
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
-
+                SquarePressed = false;
+                SquareRootPressed = false;
             }
 
             else
@@ -407,6 +475,8 @@ namespace Calculator
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
                 Screen.AppendText(" % ");
+                SquarePressed = false;
+                SquareRootPressed = false;
             }
 
 
