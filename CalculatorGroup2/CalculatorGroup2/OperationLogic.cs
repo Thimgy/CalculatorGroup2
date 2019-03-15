@@ -8,12 +8,6 @@ using System.Linq;
 public class OperationLogic
 {
 
-
-    float no1;
-    float no2;
-    float result;
-    String[] newArray;
-
     public OperationLogic()
     {
     }
