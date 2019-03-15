@@ -21,7 +21,7 @@ public class OperationLogic
     {
         if (array.Length == 1)
         {
-            result = float.Parse(array[0], CultureInfo.InvariantCulture.NumberFormat);
+            result = float.Parse(array[0].Replace(",", "."), CultureInfo.InvariantCulture.NumberFormat);
         }
        
         int length = array.Length;
@@ -104,18 +104,8 @@ public class OperationLogic
             }
         }
 
-
-        newArray = new String[length];
-        k = 0;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (!array[i].Equals(""))
-            {
-                newArray[k] = array[i].Replace(',', '.');
-                k++;
-            }
-        }
         return result;
+
     }
 
 }
