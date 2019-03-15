@@ -52,7 +52,7 @@ namespace InputParsing.Tests
         {
             string raw_input = "1 + 2 / 4";
             var expr = new Expression(raw_input);
-            float expect = 3;
+            float expect = 1.5f;
 
             float actual = expr.ComputeValue();
 
