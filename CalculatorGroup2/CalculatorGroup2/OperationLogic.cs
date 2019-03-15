@@ -21,7 +21,7 @@ public class OperationLogic
     {
         if (array.Length == 1)
         {
-            result = float.Parse(array[0], CultureInfo.InvariantCulture.NumberFormat);
+            result = float.Parse(array[0].Replace(",", "."), CultureInfo.InvariantCulture.NumberFormat);
         }
        
         int length = array.Length;
