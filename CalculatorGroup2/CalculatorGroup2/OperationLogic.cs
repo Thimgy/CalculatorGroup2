@@ -79,6 +79,18 @@ public class OperationLogic
             }
         }
 
+        newArray = new String[length];
+        k = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (!array[i].Equals(""))
+            {
+                newArray[k] = array[i].Replace(',', '.');
+                k++;
+            }
+        }
+       
+
         for (int i = 1; i < array.Length; i += 2)
         {
             no1 = float.Parse(array[i - 1], CultureInfo.InvariantCulture.NumberFormat);
@@ -92,18 +104,8 @@ public class OperationLogic
             length = length - 2;
         }
 
-
-        newArray = new String[length];
-        k = 0;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (!array[i].Equals(""))
-            {
-                newArray[k] = array[i].Replace(',', '.');
-                k++;
-            }
-        }
         return result;
+
     }
 
 }

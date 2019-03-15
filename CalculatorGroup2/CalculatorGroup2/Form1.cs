@@ -299,7 +299,7 @@ namespace Calculator
             String[] text = Screen.Text.Split(' ');
             Screen.Text = String.Empty;
             Screen.Text = op.PerformOperation(text) + "";
-            isPressed = true;
+            //isPressed = true;
         }
 
         private void buttonDot_Click(object sender, EventArgs e)
