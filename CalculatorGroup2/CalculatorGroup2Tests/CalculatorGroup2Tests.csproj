@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExpressionTests.cs" />
     <Compile Include="OperationSubstractionTests.cs" />
     <Compile Include="OperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
