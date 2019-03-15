@@ -45,18 +45,20 @@ namespace Calculator
             buttonMultiplication.Enabled = true;
             buttonDeleteOne.Enabled = true;
             buttonDeleteAll.Enabled = true;
-            buttonChangeSign.Enabled = true;
-            
-        
+            buttonChangeSign.Enabled = true;         
+            buttonDot.Enabled = true;
+            buttonSquare.Enabled = true;
+            buttonSquareRoot.Enabled = true;
+
 
         }
         private void SquareOrRootPressed()
         {
-           /* if (SquareRootPressed == true)
+            if (SquareRootPressed == true)
             {
                 Screen.Text = String.Empty;
                 SquareRootPressed = false;
-            }*/
+            }
             if (SquarePressed == true)
             {
                 Screen.Text = String.Empty;
@@ -117,39 +119,7 @@ namespace Calculator
             button9.Enabled = true;
         }
 
-        private void buttonPlus_Click(object sender, EventArgs e)
-        {
-            if(OperationIsPressed==true) {
-                Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 3);
-                Screen.AppendText(" + ");
-                EnableAllButtons();
-                buttonPlus.Enabled = false;
-                buttonEqual.Enabled = false;
-                buttonDot.Enabled = true;
-                buttonChangeSign.Enabled = false;
-                EnableAllNumbers();
-                buttonSquare.Enabled = false;
-                buttonSquareRoot.Enabled = false;
-                buttonDot.Enabled = false;
-                buttonChangeSign.Enabled = false;
-
-            }
-                
-            else {
-                OperationIsPressed = true;
-                EnableAllButtons();
-                buttonPlus.Enabled = false;
-                buttonEqual.Enabled = false;
-                buttonChangeSign.Enabled = false;
-                buttonDot.Enabled = true;
-                Screen.AppendText(" + ");
-                EnableAllNumbers();
-                buttonSquare.Enabled = false;
-                buttonSquareRoot.Enabled = false;
-                buttonDot.Enabled = false;
-                buttonChangeSign.Enabled = false;
-            }
-        }
+       
 
         private void button0_Click(object sender, EventArgs e)
         {
@@ -276,6 +246,12 @@ namespace Calculator
                 buttonPlus.Enabled = false;
                 buttonEqual.Enabled = false;
                 buttonDot.Enabled = true;
+                buttonChangeSign.Enabled = false;
+                EnableAllNumbers();
+                buttonSquare.Enabled = false;
+                buttonSquareRoot.Enabled = false;
+                buttonDot.Enabled = false;
+                buttonChangeSign.Enabled = false;
                 SquarePressed = false;
                 SquareRootPressed = false;
 
@@ -287,12 +263,17 @@ namespace Calculator
                 EnableAllButtons();
                 buttonPlus.Enabled = false;
                 buttonEqual.Enabled = false;
+                buttonChangeSign.Enabled = false;
                 buttonDot.Enabled = true;
                 Screen.AppendText(" + ");
+                EnableAllNumbers();
+                buttonSquare.Enabled = false;
+                buttonSquareRoot.Enabled = false;
+                buttonDot.Enabled = false;
+                buttonChangeSign.Enabled = false;
                 SquarePressed = false;
                 SquareRootPressed = false;
             }
-
         }
 
         private void buttonMinus_Click(object sender, EventArgs e)
@@ -398,8 +379,9 @@ namespace Calculator
                 buttonSquareRoot.Enabled = false;
                 buttonDot.Enabled = false;
                 buttonChangeSign.Enabled = false;
-
-                }
+                SquarePressed = false;
+                SquareRootPressed = false;
+            }
 
             else
             {
@@ -415,7 +397,8 @@ namespace Calculator
                 buttonSquareRoot.Enabled = false;
                 buttonDot.Enabled = false;
                 buttonChangeSign.Enabled = false;
-
+                SquarePressed = false;
+                SquareRootPressed = false;
             }
         }
 
@@ -557,6 +540,8 @@ namespace Calculator
                 buttonSquare.Enabled = false;
                 buttonSquareRoot.Enabled = false;
                 buttonDot.Enabled = false;
+                SquarePressed = false;
+                SquareRootPressed = false;
 
             }
 
