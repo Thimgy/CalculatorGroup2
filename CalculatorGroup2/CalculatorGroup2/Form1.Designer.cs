@@ -252,6 +252,7 @@
             this.buttonOpenBracket.TabIndex = 21;
             this.buttonOpenBracket.Text = "(";
             this.buttonOpenBracket.UseVisualStyleBackColor = true;
+            this.buttonOpenBracket.Click += new System.EventHandler(this.buttonOpenBracket_Click);
             // 
             // buttonSquare
             // 
@@ -281,6 +282,7 @@
             this.buttonCloseBracket.TabIndex = 25;
             this.buttonCloseBracket.Text = ")";
             this.buttonCloseBracket.UseVisualStyleBackColor = true;
+            this.buttonCloseBracket.Click += new System.EventHandler(this.buttonCloseBracket_Click);
             // 
             // buttonMod
             // 

@@ -11,7 +11,7 @@ namespace Operation.Tests
         public void TestAddition1()
         {
             float a = -10, b = 20;
-            float result = Operation.OperationAddition.PerformAddition(a, b);
+            float result = BinaryOperation.addition.Perform(a, b);
 
             Assert.AreEqual(10, result);
         }
@@ -20,7 +20,7 @@ namespace Operation.Tests
         public void TestAddition2()
         {
             float a = 0, b = 20;
-            float result = Operation.OperationAddition.PerformAddition(a, b);
+            float result = BinaryOperation.addition.Perform(a, b);
 
             Assert.AreNotEqual(10, result);
         }
@@ -29,7 +29,7 @@ namespace Operation.Tests
         public void TestSubstraction1()
         {
             float a = 20, b = -10;
-            float result = Operation.OperationSubstraction.PerformSubstraction(a, b);
+            float result = BinaryOperation.substraction.Perform(a, b);
 
             Assert.AreEqual(30, result);
         }
@@ -37,7 +37,7 @@ namespace Operation.Tests
         public void TestSubstraction2()
         {
             float a = 20, b = 0;
-            float result = Operation.OperationSubstraction.PerformSubstraction(a, b);
+            float result = BinaryOperation.substraction.Perform(a, b);
 
             Assert.AreNotEqual(10, result);
         }
@@ -45,7 +45,7 @@ namespace Operation.Tests
         public void TestMultiplication1()
         {
             float a = -2, b = -3;
-            float result = Operation.OperationMultiplication.PerformationMultiplication(a, b);
+            float result = BinaryOperation.multiplication.Perform(a, b);
 
             Assert.AreEqual(6, result);
         }
@@ -54,7 +54,7 @@ namespace Operation.Tests
         public void TestMultiplication2()
         {
             float a = 2, b = 0;
-            float result = Operation.OperationMultiplication.PerformationMultiplication(a, b);
+            float result = BinaryOperation.multiplication.Perform(a, b);
 
             Assert.AreNotEqual(2, result);
         }
@@ -63,7 +63,7 @@ namespace Operation.Tests
         public void TestDivision1()
         {
             float a = 10, b = 2;
-            float result = Operation.OperationDivision.PerformationDivision(a, b);
+            float result = BinaryOperation.division.Perform(a, b);
      
             Assert.AreEqual(5, result);
         }
@@ -71,7 +71,7 @@ namespace Operation.Tests
         public void TestDivision2()
         {
             float a = 1, b = 2;
-            float result = Operation.OperationDivision.PerformationDivision(a, b);
+            float result = BinaryOperation.division.Perform(a, b);
 
             Assert.AreNotEqual(0, result);
         }
