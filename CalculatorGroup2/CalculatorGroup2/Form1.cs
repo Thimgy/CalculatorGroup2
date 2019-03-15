@@ -473,7 +473,7 @@ namespace Calculator
             }
             Console.WriteLine("Will do calculation");
             OperationLogic op = new OperationLogic();
-            String[] text = Screen.Text.Split(' ');
+            String text = Screen.Text;
             Screen.Text = String.Empty;
             Screen.Text = op.PerformOperation(text) + "";
             isPressed = true;
@@ -495,11 +495,18 @@ namespace Calculator
             }
         }
 
+
+
         private void buttonSquareRoot_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(Screen.Text, @"^\d+$"))
-            {
 
+            if (Screen.Text.Contains("-"))
+            {
+                return;
+            }
+            if (Regex.IsMatch(Screen.Text, @"[+]?(0?|[1-9][0-9]*)(\.[0-9]*[1-9])?([eE][+]?(0|[1-9][0-9]*))?"))
+            {
+     
                 float result = OperationRoot.PerformationRoot(float.Parse(Screen.Text, CultureInfo.InvariantCulture.NumberFormat));
                 Screen.Text = String.Empty;
                 Screen.AppendText(result + "");
