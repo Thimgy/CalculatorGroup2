@@ -237,7 +237,7 @@ namespace Calculator
                 buttonChangeSign.Enabled = false;
 
             }
-            isPressed = true;
+            //isPressed = true;
         }
 
         private void buttonDivision_Click(object sender, EventArgs e)
