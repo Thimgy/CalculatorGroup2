@@ -93,7 +93,7 @@ namespace InputParsing
                 {
                     throw new ArgumentException("Invalid number format");
                 }
-                float val = float.Parse(m.Value, CultureInfo.InvariantCulture.NumberFormat);
+                float val = float.Parse(m.Value.Replace(",", "."), CultureInfo.InvariantCulture.NumberFormat);
                 f = f.Substring(m.Length);
                 result = new FixedValue { Value = val };
             }
@@ -142,6 +142,10 @@ namespace InputParsing
                 if (formula.StartsWith(op.id))
                 {
                     formula = formula.Substring(op.id.Length).TrimStart();
+                    if(op.priority > this.maxPriority)
+                    {
+                        this.maxPriority = op.priority;
+                    }
                     return op;
                 }
             }

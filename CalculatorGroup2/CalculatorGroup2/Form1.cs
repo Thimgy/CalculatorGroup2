@@ -396,7 +396,7 @@ namespace Calculator
             }
             Console.WriteLine("Will do calculation");
             OperationLogic op = new OperationLogic();
-            String[] text = Screen.Text.Split(' ');
+            String text = Screen.Text;
             Screen.Text = String.Empty;
             Screen.Text = op.PerformOperation(text) + "";
             isPressed = true;
