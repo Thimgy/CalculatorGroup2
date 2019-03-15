@@ -89,19 +89,19 @@ public class OperationLogic
                 k++;
             }
         }
-       
+        array = newArray;
 
         for (int i = 1; i < array.Length; i += 2)
         {
-            no1 = float.Parse(array[i - 1], CultureInfo.InvariantCulture.NumberFormat);
-            no2 = float.Parse(array[i + 1], CultureInfo.InvariantCulture.NumberFormat);
             if (array[i].Equals("%"))
             {
+                no1 = float.Parse(array[i - 1], CultureInfo.InvariantCulture.NumberFormat);
+                no2 = float.Parse(array[i + 1], CultureInfo.InvariantCulture.NumberFormat);
                 result = OperationMod.PerformationMod(no1, no2);
+                array[i + 1] = result.ToString().Replace(',', '.');
+                array[i - 1] = array[i] = "";
+                length = length - 2;
             }
-            array[i + 1] = result.ToString().Replace(',', '.');
-            array[i - 1] = array[i] = "";
-            length = length - 2;
         }
 
         return result;
