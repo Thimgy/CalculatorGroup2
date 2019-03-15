@@ -26,11 +26,35 @@ namespace InputParsing.Tests
         [TestMethod()]
         public void NeastedParsing()
         {
-            string raw_input = "(1) + (5)";
+            string raw_input = "(1.) + (.5)";
             var expr = new Expression(raw_input);
-            string expect = "((1) + (5))";
+            string expect = "((1) + (0.5))";
 
             string actual = expr.Debug();
+
+            Assert.AreEqual(expect, actual);
+        }
+
+        [TestMethod]
+        public void MixedParsing()
+        {
+            string raw_input = "1 + 2 / 4";
+            var expr = new Expression(raw_input);
+            string expect = "(1 + 2 / 4)";
+
+            string actual = expr.Debug();
+
+            Assert.AreEqual(expect, actual);
+        }
+
+        [TestMethod]
+        public void EvalTest()
+        {
+            string raw_input = "1 + 2 / 4";
+            var expr = new Expression(raw_input);
+            float expect = 3;
+
+            float actual = expr.ComputeValue();
 
             Assert.AreEqual(expect, actual);
         }
