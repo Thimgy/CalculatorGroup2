@@ -42,9 +42,9 @@ namespace Calculator
             buttonSquareRoot.Enabled = true;
             buttonSquare.Enabled = true;
             buttonDot.Enabled = true;
-           
-            
-        
+
+
+
 
         }
         private void DisableAllButtons()
@@ -418,14 +418,22 @@ namespace Calculator
             }
         }
 
+
+
         private void buttonSquareRoot_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(Screen.Text, @"^\d+$"))
-            {
 
+            if (Screen.Text.Contains("-"))
+            {
+                return;
+            }
+            if (Regex.IsMatch(Screen.Text, @"[+]?(0?|[1-9][0-9]*)(\.[0-9]*[1-9])?([eE][+]?(0|[1-9][0-9]*))?"))
+            {
+     
                 float result = OperationRoot.PerformationRoot(float.Parse(Screen.Text, CultureInfo.InvariantCulture.NumberFormat));
                 Screen.Text = String.Empty;
                 Screen.AppendText(result + "");
+                
 
             } 
             
