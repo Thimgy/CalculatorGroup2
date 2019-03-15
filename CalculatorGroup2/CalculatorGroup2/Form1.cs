@@ -235,10 +235,9 @@ namespace Calculator
                 buttonDot.Enabled = true;
                 Screen.AppendText(" X ");
                 buttonChangeSign.Enabled = false;
-                isPressed = true;
 
             }
-            
+            //isPressed = true;
         }
 
         private void buttonDivision_Click(object sender, EventArgs e)
