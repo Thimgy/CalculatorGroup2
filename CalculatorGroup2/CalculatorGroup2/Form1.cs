@@ -329,11 +329,15 @@ namespace Calculator
         {
             Screen.Text = String.Empty;
             DisableAllButtons();
-            
+            EnableAllNumbers();
+            OperationIsPressed = false;
+            bracketsused = false;
+
         }
 
         private void buttonDeleteOne_Click(object sender, EventArgs e) 
         {
+            Console.WriteLine("Lista ima " + brackets.Count);
             char test = Screen.Text[Screen.Text.Length - 1];
             if (test == ' ')
             {
@@ -341,15 +345,18 @@ namespace Calculator
             }
 
 
-            if (!String.IsNullOrEmpty(Screen.Text)) {
+            if (!String.IsNullOrEmpty(Screen.Text))
+            {
                 if (OperationIsPressed == true)
                 {
                     Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 3);
                     if (String.IsNullOrEmpty(Screen.Text))
                     {
                         DisableAllButtons();
+                        OperationIsPressed = false;
                     }
-                    else {
+                    else
+                    {
                         OperationIsPressed = false;
                         EnableAllButtons();
                     }
@@ -357,17 +364,54 @@ namespace Calculator
                 }
                 else
                 {
-                     Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 1);
 
+                    char last = Screen.Text[Screen.Text.Length - 1];
+                    string lastStr = last + "";
+                    Screen.Text = Screen.Text.Substring(0, Screen.Text.Length - 1);
                     if (String.IsNullOrEmpty(Screen.Text))
                     {
                         DisableAllButtons();
                     }
                     else
                     {
-                        char last = Screen.Text[Screen.Text.Length - 1];
+                        if (last == '(')
+                        {
+                            brackets.RemoveAt(brackets.Count - 1);
+
+
+                            if (Screen.Text == String.Empty)
+                            {
+                                bracketsused = false;
+                                brackets.Clear();
+                            }
+                        }
+                        if (Regex.IsMatch(lastStr, @"^\d+$"))
+                        {
+                            if (Screen.Text == String.Empty)
+                            {
+                                bracketsused = false;
+                            }
+                            if (Screen.Text[Screen.Text.Length - 1] == ' ')
+                            {
+                                OperationIsPressed = true;
+                            }
+                            EnableAllNumbers();
+                        }
+                        if (last == ')')
+                        {
+                            brackets.Add(true);
+
+                            if (Screen.Text == String.Empty)
+                            {
+                                brackets.Clear();
+
+                                bracketsused = false;
+                                brackets.RemoveAt(brackets.Count - 1);
+                            }
+                        }
                         if (last == ' ')
                         {
+
                             DisableAllButtons();
                             buttonDeleteOne.Enabled = true;
                             buttonDeleteAll.Enabled = true;
@@ -384,12 +428,13 @@ namespace Calculator
 
                 }
             }
+           
             
         }
 
         private void buttonEqual_Click(object sender, EventArgs e)
         {
-            
+
             if (brackets.Count>=1 && bracketsused) {
                 return;
 
@@ -535,6 +580,7 @@ namespace Calculator
                 brackets.Add(true);
                 Screen.AppendText("(");
                 DisableAllButtons();
+                EnableAllNumbers();
             }
             else
             {
@@ -543,6 +589,7 @@ namespace Calculator
                 brackets.Add(true);
                 Screen.AppendText("(");
                 DisableAllButtons();
+                EnableAllNumbers();
             }
         }
 
@@ -551,11 +598,11 @@ namespace Calculator
             if (Screen.Text.Length >= 2)
             {
                 string lasttext = Screen.Text.Substring(Screen.Text.Length - 2);
-                Console.WriteLine(lasttext);
                 if (lasttext.Equals(" (") || lasttext.Equals("+ ") || lasttext.Equals("- ") || lasttext.Equals("/ ") || lasttext.Equals("X "))
                 {
                     return;
                 }
+
                 bracketsused = true;
                 if (brackets.Count >= 1)
                 {
@@ -568,7 +615,6 @@ namespace Calculator
                         buttonSquareRoot.Enabled = false;
                         buttonDot.Enabled = false;
                         buttonChangeSign.Enabled = false;
-
                     }
                 }
             }
